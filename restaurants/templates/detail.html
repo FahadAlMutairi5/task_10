@@ -17,12 +17,25 @@
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
     <div class="row text-center">
         <div class="col-md-6">
+          <a class="nav-link" href="{% url 'item-create' restaurant.id %}">Create Item</a>
+        </div>
+        <div class="col-md-6">
             <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
         </div>
         <div class="col-md-6">
             <a href="{% url 'restaurant-delete' restaurant.id %}" class="btn btn-outline-danger btn-block">Delete</a>
         </div>
     </div>
+  </div>
+  <div>
+   {% for item in item_re %}
+      name : {{item.name}} <br>
+      description :{{item.description}} <br>
+      price :{{item.price}}
+      <hr>
+   {% endfor %}
+      
+
   </div>
 </div>
 {% endblock content %}
